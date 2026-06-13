@@ -2,6 +2,7 @@ import express, { Router } from "express"
 import authRouter from "./authRouter"
 import categoryRouter from "./categoryRouter"
 import productRouter from "./productRouter"
+import destinationRouter from "./destinationRouter"
 import errorMiddleware from "../middlewares/errorMiddleware"
 
 const router: Router = express.Router()
@@ -9,6 +10,11 @@ const router: Router = express.Router()
 router.use("/auth", authRouter)
 router.use("/categories", categoryRouter)
 router.use("/products", productRouter)
+router.use("/destinations", destinationRouter)
+
+router.all(/.*/, (req, res) => {
+  return res.status(404).json({ message: "Not found" })
+})
 
 router.use(errorMiddleware)
 
