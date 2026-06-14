@@ -49,6 +49,7 @@ model Product {
   categoryId  Int
   name        String
   price       Int
+  weight      Int       @default(100) // in grams
   image       String
   description String
   createdAt   DateTime  @default(now())
