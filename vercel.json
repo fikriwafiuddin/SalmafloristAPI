@@ -1,3 +1,4 @@
 {
+  "includeFiles": ["dist/**"],
   "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }]
 }
