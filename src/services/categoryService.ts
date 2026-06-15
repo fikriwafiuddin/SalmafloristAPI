@@ -1,7 +1,7 @@
 import { z } from "zod"
-import { prisma } from "../lib/prisma"
-import { ErrorResponse } from "../utils/response"
-import categoryValidation from "../validations/categoryValidation"
+import { prisma } from "../lib/prisma.js"
+import { ErrorResponse } from "../utils/response.js"
+import categoryValidation from "../validations/categoryValidation.js"
 
 const getAll = async () => {
   return await prisma.category.findMany()

@@ -1,8 +1,8 @@
 import type { Request, Response, NextFunction } from "express"
-import type { AuthRequest } from "../middlewares/authMiddleware"
-import validation from "../validations/validation"
-import orderValidation from "../validations/orderValidation"
-import orderService from "../services/orderService"
+import type { AuthRequest } from "../middlewares/authMiddleware.js"
+import validation from "../validations/validation.js"
+import orderValidation from "../validations/orderValidation.js"
+import orderService from "../services/orderService.js"
 
 const create = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {

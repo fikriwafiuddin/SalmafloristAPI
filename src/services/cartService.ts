@@ -1,7 +1,7 @@
-import cartValidation from "../validations/cartValidation"
+import cartValidation from "../validations/cartValidation.js"
 import { z } from "zod"
-import { prisma } from "../lib/prisma"
-import { ErrorResponse } from "../utils/response"
+import { prisma } from "../lib/prisma.js"
+import { ErrorResponse } from "../utils/response.js"
 
 const getOrCreateCart = async (userId: string) => {
   let cart = await prisma.cart.findUnique({

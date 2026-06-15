@@ -1,8 +1,8 @@
-import productValidation from "../validations/productValidation"
+import productValidation from "../validations/productValidation.js"
 import { z } from "zod"
-import { prisma } from "../lib/prisma"
-import { ErrorResponse } from "../utils/response"
-import cloudinary from "../lib/cloudinary"
+import { prisma } from "../lib/prisma.js"
+import { ErrorResponse } from "../utils/response.js"
+import cloudinary from "../lib/cloudinary.js"
 import streamifier from "streamifier"
 
 const uploadToCloudinary = (buffer: Buffer): Promise<string> => {

@@ -1,9 +1,9 @@
-import { authValidation } from "../validations/authValidation"
+import { authValidation } from "../validations/authValidation.js"
 import { z } from "zod"
-import { prisma } from "../lib/prisma"
-import { ErrorResponse } from "../utils/response"
+import { prisma } from "../lib/prisma.js"
+import { ErrorResponse } from "../utils/response.js"
 import bcrypt from "bcrypt"
-import { generateToken, verifyToken } from "../lib/jwt"
+import { generateToken, verifyToken } from "../lib/jwt.js"
 import type { JwtPayload } from "jsonwebtoken"
 
 const login = async (data: z.infer<typeof authValidation.login>) => {

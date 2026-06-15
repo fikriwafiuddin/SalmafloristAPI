@@ -1,6 +1,6 @@
 import express, { Router } from "express"
-import dashboardController from "../controllers/dashboardController"
-import { authenticate, authorize } from "../middlewares/authMiddleware"
+import dashboardController from "../controllers/dashboardController.js"
+import { authenticate, authorize } from "../middlewares/authMiddleware.js"
 
 const router: Router = express.Router()
 

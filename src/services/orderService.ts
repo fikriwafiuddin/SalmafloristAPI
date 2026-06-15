@@ -1,11 +1,11 @@
 import { z } from "zod"
-import { prisma } from "../lib/prisma"
-import { ErrorResponse } from "../utils/response"
-import orderValidation from "../validations/orderValidation"
-import config from "../config/index"
-import cartService from "./cartService"
-import destinationService from "./destinationService"
-import { EnumOrderStatus } from "../../generated/prisma/client"
+import { prisma } from "../lib/prisma.js"
+import { ErrorResponse } from "../utils/response.js"
+import orderValidation from "../validations/orderValidation.js"
+import config from "../config/index.js"
+import cartService from "./cartService.js"
+import destinationService from "./destinationService.js"
+import { EnumOrderStatus } from "../../generated/prisma/client.js"
 
 import midtransClient from "midtrans-client"
 

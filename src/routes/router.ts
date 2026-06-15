@@ -1,12 +1,12 @@
 import express, { Router } from "express"
-import authRouter from "./authRouter"
-import categoryRouter from "./categoryRouter"
-import productRouter from "./productRouter"
-import destinationRouter from "./destinationRouter"
-import cartRouter from "./cartRouter"
-import orderRouter from "./orderRouter"
-import dashboardRouter from "./dashboardRouter"
-import errorMiddleware from "../middlewares/errorMiddleware"
+import authRouter from "./authRouter.js"
+import categoryRouter from "./categoryRouter.js"
+import productRouter from "./productRouter.js"
+import destinationRouter from "./destinationRouter.js"
+import cartRouter from "./cartRouter.js"
+import orderRouter from "./orderRouter.js"
+import dashboardRouter from "./dashboardRouter.js"
+import errorMiddleware from "../middlewares/errorMiddleware.js"
 
 const router: Router = express.Router()
 

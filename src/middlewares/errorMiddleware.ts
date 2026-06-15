@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from "express"
-import { ErrorResponse } from "../utils/response"
+import { ErrorResponse } from "../utils/response.js"
 
 export default function errorMiddleware(
   err: ErrorResponse,

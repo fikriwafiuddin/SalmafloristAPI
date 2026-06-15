@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { EnumOrderStatus } from "../../generated/prisma/client"
+import { EnumOrderStatus } from "../../generated/prisma/client.js"
 
 const create = z.object({
   address: z.object({

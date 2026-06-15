@@ -1,4 +1,4 @@
-import { ErrorResponse } from "../utils/response"
+import { ErrorResponse } from "../utils/response.js"
 import { z, ZodError } from "zod"
 import type { ZodSchema } from "zod"
 

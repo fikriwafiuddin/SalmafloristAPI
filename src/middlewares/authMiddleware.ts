@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express"
-import { verifyToken } from "../lib/jwt"
-import { prisma } from "../lib/prisma"
-import { EnumRole } from "../../generated/prisma/client"
+import { verifyToken } from "../lib/jwt.js"
+import { prisma } from "../lib/prisma.js"
+import { EnumRole } from "../../generated/prisma/client.js"
 
 export interface AuthRequest extends Request {
   user?: any

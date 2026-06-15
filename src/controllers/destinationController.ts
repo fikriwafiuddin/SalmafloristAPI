@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express"
-import destinationService from "../services/destinationService"
+import destinationService from "../services/destinationService.js"
 
 const getProvinces = async (
   req: Request,

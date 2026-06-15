@@ -1,6 +1,6 @@
 import "dotenv/config"
 import { PrismaTiDBCloud } from "@tidbcloud/prisma-adapter"
-import { PrismaClient } from "../../generated/prisma/client"
+import { PrismaClient } from "../../generated/prisma/client.js"
 
 const adapter = new PrismaTiDBCloud({ url: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })

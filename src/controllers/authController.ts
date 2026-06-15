@@ -1,8 +1,8 @@
 import type { Request, Response, NextFunction } from "express"
-import validation from "../validations/validation"
-import { authValidation } from "../validations/authValidation"
-import authService from "../services/authService"
-import { ErrorResponse } from "../utils/response"
+import validation from "../validations/validation.js"
+import { authValidation } from "../validations/authValidation.js"
+import authService from "../services/authService.js"
+import { ErrorResponse } from "../utils/response.js"
 
 const login = async (req: Request, res: Response, next: NextFunction) => {
   try {

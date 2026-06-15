@@ -1,8 +1,8 @@
 import type { Response, NextFunction } from "express"
-import type { AuthRequest } from "../middlewares/authMiddleware"
-import validation from "../validations/validation"
-import dashboardValidation from "../validations/dashboardValidation"
-import dashboardService from "../services/dashboardService"
+import type { AuthRequest } from "../middlewares/authMiddleware.js"
+import validation from "../validations/validation.js"
+import dashboardValidation from "../validations/dashboardValidation.js"
+import dashboardService from "../services/dashboardService.js"
 
 const getDashboard = async (
   req: AuthRequest,

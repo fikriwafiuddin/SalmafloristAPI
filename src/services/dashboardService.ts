@@ -1,5 +1,5 @@
-import { prisma } from "../lib/prisma"
-import { EnumOrderStatus } from "../../generated/prisma/client"
+import { prisma } from "../lib/prisma.js"
+import { EnumOrderStatus } from "../../generated/prisma/client.js"
 
 interface DateRange {
   start: Date

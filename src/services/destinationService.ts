@@ -1,5 +1,5 @@
-import { ErrorResponse } from "../utils/response"
-import config from "../config/index"
+import { ErrorResponse } from "../utils/response.js"
+import config from "../config/index.js"
 
 const getProvinces = async () => {
   const response = await fetch(

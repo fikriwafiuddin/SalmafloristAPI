@@ -1,6 +1,6 @@
 import express, { Router } from "express"
-import orderController from "../controllers/orderController"
-import { authenticate, authorize } from "../middlewares/authMiddleware"
+import orderController from "../controllers/orderController.js"
+import { authenticate, authorize } from "../middlewares/authMiddleware.js"
 
 const router: Router = express.Router()
 

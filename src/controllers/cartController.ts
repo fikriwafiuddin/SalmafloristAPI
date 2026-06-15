@@ -1,8 +1,8 @@
 import type { Response, NextFunction } from "express"
-import type { AuthRequest } from "../middlewares/authMiddleware"
-import validation from "../validations/validation"
-import cartValidation from "../validations/cartValidation"
-import cartService from "../services/cartService"
+import type { AuthRequest } from "../middlewares/authMiddleware.js"
+import validation from "../validations/validation.js"
+import cartValidation from "../validations/cartValidation.js"
+import cartService from "../services/cartService.js"
 
 const getCart = async (req: AuthRequest, res: Response, next: NextFunction) => {
   try {

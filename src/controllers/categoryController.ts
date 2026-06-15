@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express"
-import validation from "../validations/validation"
-import categoryService from "../services/categoryService"
-import categoryValidation from "../validations/categoryValidation"
+import validation from "../validations/validation.js"
+import categoryService from "../services/categoryService.js"
+import categoryValidation from "../validations/categoryValidation.js"
 
 const getAll = async (req: Request, res: Response, next: NextFunction) => {
   try {
