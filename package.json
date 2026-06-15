@@ -8,6 +8,7 @@
     "dev": "tsx watch src/index.ts",
     "build": "rimraf dist && tsc && tsc-alias",
     "start": "node dist/index.js",
+    "postinstall": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio"

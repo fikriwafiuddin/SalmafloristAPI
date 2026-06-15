@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/index.js"
+    }
+  ],
+  "env": {
+    "DATABASE_HOST": "@database_host",
+    "DATABASE_USER": "@database_user",
+    "DATABASE_PASSWORD": "@database_password",
+    "DATABASE_NAME": "@database_name",
+    "JWT_SECRET": "@jwt_secret",
+    "CLOUDINARY_CLOUD_NAME": "@cloudinary_cloud_name",
+    "CLOUDINARY_API_KEY": "@cloudinary_api_key",
+    "CLOUDINARY_API_SECRET": "@cloudinary_api_secret",
+    "MIDTRANS_SERVER_KEY": "@midtrans_server_key",
+    "MIDTRANS_CLIENT_KEY": "@midtrans_client_key",
+    "MIDTRANS_IS_PRODUCTION": "@midtrans_is_production",
+    "RAJAONGKIR_API_KEY": "@rajaongkir_api_key",
+    "RAJAONGKIR_BASE_URL": "@rajaongkir_base_url",
+    "ORIGIN": "@origin"
+  }
+}
