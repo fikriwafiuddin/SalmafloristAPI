@@ -1,1 +1,1 @@
-export { default } from "../dist/src/app.js"
+export { default } from "../src/app.js"

@@ -12,6 +12,6 @@
     "resolveJsonModule": true,
     "ignoreDeprecations": "6.0"
   },
-  "include": ["src/**/*", "generated/prisma/**/*"],
+  "include": ["src/**/*", "generated/prisma/**/*", "api/**/*"],
   "exclude": ["node_modules", "dist"]
 }
