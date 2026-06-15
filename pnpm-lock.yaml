@@ -14,6 +14,12 @@ importers:
       '@prisma/client':
         specifier: ^7.8.0
         version: 7.8.0(prisma@7.8.0(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3))(typescript@6.0.3)
+      '@tidbcloud/prisma-adapter':
+        specifier: ^6.17.0
+        version: 6.17.0(@tidbcloud/serverless@0.3.0)
+      '@tidbcloud/serverless':
+        specifier: ^0.3.0
+        version: 0.3.0
       bcrypt:
         specifier: ^6.0.0
         version: 6.0.0
@@ -316,6 +322,9 @@ packages:
   '@prisma/config@7.8.0':
     resolution: {integrity: sha512-HFESzd9rx2ZQxlK+TL7tu1HPvCqrHiL6LCxYykI2c34mvaUuIVVl3lYuicJD/MNnzgPnyeBEMlK4WTomJCV5jw==}
 
+  '@prisma/debug@6.17.0':
+    resolution: {integrity: sha512-eE2CB32nr1hRqyLVnOAVY6c//iSJ/PN+Yfoa/2sEzLGpORaCg61d+nvdAkYSh+6Y2B8L4BVyzkRMANLD6nnC2g==}
+
   '@prisma/debug@7.2.0':
     resolution: {integrity: sha512-YSGTiSlBAVJPzX4ONZmMotL+ozJwQjRmZweQNIq/ER0tQJKJynNkRB3kyvt37eOfsbMCXk3gnLF6J9OJ4QWftw==}
 
@@ -324,6 +333,9 @@ packages:
 
   '@prisma/dev@0.24.3':
     resolution: {integrity: sha512-ffHlQuKXZiaDt9Go0OnCTdJZrHxK0k7omJKNV86/VjpsXu5EIHZLK0T7JSWgvNlJwh56kW9JFu9v0qJciFzepg==}
+
+  '@prisma/driver-adapter-utils@6.17.0':
+    resolution: {integrity: sha512-JqK4STDoZVQnj7ac6+daN5w6l0Vns82tHdj8FVzMdCLMdWd2JgDzDS688gTMZt7rEDNJSb/z9U5XtIP0C08sWg==}
 
   '@prisma/driver-adapter-utils@7.8.0':
     resolution: {integrity: sha512-/Q13o0ZT0rjc1Xk0Q9KhZYwuq2EW/vSbWUBKfgEKkaCuB/Sg6bqnjmTZqC5cD4d6y1vfFAEwBRzfzoSMIVJ55A==}
@@ -434,6 +446,15 @@ packages:
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
+
+  '@tidbcloud/prisma-adapter@6.17.0':
+    resolution: {integrity: sha512-ULKaE2e4+j5ijgkvRMN2rz7Ub35Ufh5Z4qkBhGk6BhLb3A1NnnN/+RPITDwYS0Te4bHYYhGwdRSek00jK9g1WQ==}
+    peerDependencies:
+      '@tidbcloud/serverless': '>= 0.1.0'
+
+  '@tidbcloud/serverless@0.3.0':
+    resolution: {integrity: sha512-SrTqKNPuskV8GTm574d9otox8GAKXrsoF5NfQ5fiDirR+ao+eE6O2pfWr5zLhmFLQRbeuT8SKaUD+JOK0Z7gyQ==}
+    engines: {node: '>=16'}
 
   '@tsconfig/node10@1.0.12':
     resolution: {integrity: sha512-UCYBaeFvM11aU2y3YPZ//O5Rhj+xKyzy7mvcIoAjASbigy8mHMryP5cK7dgjlz2hWxh1g5pLw084E0a/wlUSFQ==}
@@ -1583,6 +1604,8 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
+  '@prisma/debug@6.17.0': {}
+
   '@prisma/debug@7.2.0': {}
 
   '@prisma/debug@7.8.0': {}
@@ -1608,6 +1631,10 @@ snapshots:
       zeptomatch: 2.1.0
     transitivePeerDependencies:
       - typescript
+
+  '@prisma/driver-adapter-utils@6.17.0':
+    dependencies:
+      '@prisma/debug': 6.17.0
 
   '@prisma/driver-adapter-utils@7.8.0':
     dependencies:
@@ -1710,6 +1737,13 @@ snapshots:
       '@types/react': 19.2.17
 
   '@standard-schema/spec@1.1.0': {}
+
+  '@tidbcloud/prisma-adapter@6.17.0(@tidbcloud/serverless@0.3.0)':
+    dependencies:
+      '@prisma/driver-adapter-utils': 6.17.0
+      '@tidbcloud/serverless': 0.3.0
+
+  '@tidbcloud/serverless@0.3.0': {}
 
   '@tsconfig/node10@1.0.12': {}
 
