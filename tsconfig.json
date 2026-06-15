@@ -43,6 +43,6 @@
     "moduleResolution": "bundler",
     "esModuleInterop": true
   },
-  "include": ["src/**/*", "api/**/*", "generated/prisma/**/*"],
+  "include": ["src/**/*", "generated/prisma/**/*"],
   "exclude": ["node_modules", "dist"]
 }
