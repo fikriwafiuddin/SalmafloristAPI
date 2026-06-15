@@ -18,5 +18,19 @@ const getDashboard = async (
   }
 }
 
-const dashboardController = { getDashboard }
+const getReport = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const validated = await validation(req.query, dashboardValidation.getReportQuery)
+    const data = await dashboardService.getReport(validated.month, validated.year)
+    return res.status(200).json(data)
+  } catch (error) {
+    next(error)
+  }
+}
+
+const dashboardController = { getDashboard, getReport }
 export default dashboardController

@@ -11,4 +11,7 @@ router.use(authorize("ADMIN"))
 // Get dashboard data
 router.get("/", dashboardController.getDashboard)
 
+// Get monthly report
+router.get("/report", dashboardController.getReport)
+
 export default router
