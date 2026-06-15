@@ -8,6 +8,10 @@ app.get("/", (req: Request, res: Response) => {
   res.json("Salma Florist API is running")
 })
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`)
-})
+if (process.env.NODE_ENV !== "production") {
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`)
+  })
+}
+
+export default app
