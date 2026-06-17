@@ -5,6 +5,8 @@ const midtransServerKey = process.env.MIDTRANS_SERVER_KEY || ""
 const midtransClientKey = process.env.MIDTRANS_CLIENT_KEY || ""
 const midtransIsProduction = process.env.MIDTRANS_IS_PRODUCTION === "true"
 const baseUrl = process.env.BASE_URL || "http://localhost:3000"
+const firebaseServiceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY || ""
+const firebaseProjectId = process.env.FIREBASE_PROJECT_ID || ""
 
 const config = {
   rajaongkirApiKey,
@@ -14,6 +16,8 @@ const config = {
   midtransClientKey,
   midtransIsProduction,
   baseUrl,
+  firebaseServiceAccountKey,
+  firebaseProjectId,
 }
 
 export default config

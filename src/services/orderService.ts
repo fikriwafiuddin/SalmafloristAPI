@@ -5,6 +5,7 @@ import orderValidation from "../validations/orderValidation.js"
 import config from "../config/index.js"
 import cartService from "./cartService.js"
 import destinationService from "./destinationService.js"
+import notificationService from "./notificationService.js"
 import { EnumOrderStatus } from "../../generated/prisma/client.js"
 
 import midtransClient from "midtrans-client"
@@ -189,6 +190,11 @@ const createOrder = async (
 
   const transaction = await snap.createTransaction(parameter)
 
+  // Send notification to all admins about new order
+  notificationService
+    .sendOrderNotification(order, "NEW_ORDER")
+    .catch((error) => console.error("Failed to send new order notification:", error))
+
   return {
     order,
     paymentToken: transaction.token,
@@ -206,6 +212,7 @@ const handleWebhook = async (notificationData: any) => {
 
   const order = await prisma.order.findFirst({
     where: { invoiceNumber: orderId },
+    include: { user: true },
   })
 
   if (!order) {
@@ -244,6 +251,13 @@ const handleWebhook = async (notificationData: any) => {
       } catch (err) {
         console.error("Gagal mengosongkan keranjang:", err)
       }
+
+      // Send payment success notification to user
+      notificationService
+        .sendOrderNotification(order, "PAYMENT_SUCCESS")
+        .catch((error) =>
+          console.error("Failed to send payment success notification:", error),
+        )
     }
   }
 
@@ -256,6 +270,7 @@ const updateStatus = async (
 ) => {
   const order = await prisma.order.findUnique({
     where: { id },
+    include: { user: true },
   })
 
   if (!order) {
@@ -285,13 +300,42 @@ const updateStatus = async (
     }
   }
 
-  return await prisma.order.update({
+  const updatedOrder = await prisma.order.update({
     where: { id },
     data: {
       status: nextStatus,
       shippingNumber: data.shippingNumber || order.shippingNumber,
     },
+    include: { user: true },
   })
+
+  // Send status update notification to user
+  let notificationType: "STATUS_PROCESSING" | "STATUS_DELIVERED" | "STATUS_COMPLETED" | "STATUS_CANCELLED" | null = null
+
+  switch (nextStatus) {
+    case EnumOrderStatus.PROCESSING:
+      notificationType = "STATUS_PROCESSING"
+      break
+    case EnumOrderStatus.DELIVERED:
+      notificationType = "STATUS_DELIVERED"
+      break
+    case EnumOrderStatus.COMPLETED:
+      notificationType = "STATUS_COMPLETED"
+      break
+    case EnumOrderStatus.CANCELLED:
+      notificationType = "STATUS_CANCELLED"
+      break
+  }
+
+  if (notificationType) {
+    notificationService
+      .sendOrderNotification(updatedOrder, notificationType)
+      .catch((error) =>
+        console.error("Failed to send status update notification:", error),
+      )
+  }
+
+  return updatedOrder
 }
 
 const getAll = async (
