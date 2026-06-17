@@ -18,9 +18,23 @@ const uploadToCloudinary = (buffer: Buffer): Promise<string> => {
   })
 }
 
-const getAll = async () => {
+const getAll = async (filters?: { categoryId?: number; name?: string }) => {
+  const where: {
+    deletedAt: null
+    categoryId?: number
+    name?: { contains: string }
+  } = { deletedAt: null }
+
+  if (filters?.categoryId) {
+    where.categoryId = filters.categoryId
+  }
+
+  if (filters?.name) {
+    where.name = { contains: filters.name }
+  }
+
   return await prisma.product.findMany({
-    where: { deletedAt: null },
+    where,
     include: { category: true }
   })
 }

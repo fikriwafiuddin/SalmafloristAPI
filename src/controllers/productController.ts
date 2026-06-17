@@ -5,7 +5,8 @@ import productService from "../services/productService.js"
 
 const getAll = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const products = await productService.getAll()
+    const validated = await validation(req.query, productValidation.getAllQuery)
+    const products = await productService.getAll(validated)
     return res.status(200).json({ products })
   } catch (error) {
     next(error)

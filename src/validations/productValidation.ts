@@ -16,5 +16,10 @@ const update = z.object({
   description: z.string().min(1, "Deskripsi wajib diisi").optional(),
 })
 
-const productValidation = { create, update }
+const getAllQuery = z.object({
+  categoryId: z.coerce.number().optional(),
+  name: z.string().optional(),
+})
+
+const productValidation = { create, update, getAllQuery }
 export default productValidation
