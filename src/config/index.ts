@@ -4,6 +4,7 @@ const origin = process.env.ORIGIN || ""
 const midtransServerKey = process.env.MIDTRANS_SERVER_KEY || ""
 const midtransClientKey = process.env.MIDTRANS_CLIENT_KEY || ""
 const midtransIsProduction = process.env.MIDTRANS_IS_PRODUCTION === "true"
+const baseUrl = process.env.BASE_URL || "http://localhost:3000"
 
 const config = {
   rajaongkirApiKey,
@@ -12,6 +13,7 @@ const config = {
   midtransServerKey,
   midtransClientKey,
   midtransIsProduction,
+  baseUrl,
 }
 
 export default config

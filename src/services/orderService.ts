@@ -181,6 +181,10 @@ const createOrder = async (
       first_name: order.user.username,
       email: order.user.email,
     },
+    // Redirect URLs after payment
+    finish_redirect_url: `${config.baseUrl}/payment/success?order_id=${order.invoiceNumber}`,
+    unfinish_redirect_url: `${config.baseUrl}/payment/error?order_id=${order.invoiceNumber}`,
+    error_redirect_url: `${config.baseUrl}/payment/error?order_id=${order.invoiceNumber}`,
   }
 
   const transaction = await snap.createTransaction(parameter)
